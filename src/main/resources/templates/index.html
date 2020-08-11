@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+   <head th:replace="fragments/header :: head"></head>
+   <body>
+      <nav th:replace="fragments/navbar :: navbar"></nav>
+
+      <div class="container h-100">
+          <div class="d-flex justify-content-center h-100">
+              <form class="searchbar" th:action="@{/search}" method="post">
+                      <input class="search_input" type="text" placeholder="Keresés" name="searchParam" aria-label="Search">
+                  <button type="submit" class="search_icon"><i class="fas fa-search"></i></button>
+              </form>
+          </div>
+      </div>
+
+        <div class="product-container">
+          <div class="row">
+              <div th:each="product : ${products}" class="col-md-3">
+                  <figure class="card card-product">
+                      <a th:href="@{'/delete?id=' + ${product.product_id}}" sec:authorize="hasRole('ROLE_ADMIN')"><i class="fas fa-times"></i></a>
+                      <div class="img-wrap">
+                          <img th:src="${product.img}">
+                      </div>
+                      <figcaption class="info-wrap">
+                          <h6 class="title text-dots"><a th:text="${product.name}" href="#"></a></h6>
+                          <div class="action-wrap">
+                          
+                              <a th:href="@{'/addToCart?id=' + ${product.product_id}}" sec:authorize="${isAuthenticated()}" class="btn btn-deep-orange btn-sm float-right"> Kosárba </a>
+                  
+                              <div class="price-wrap h5">
+                                  <span th:text="${product.price} + ' Ft'" class="price-new"></span>
+                              </div> <!-- price-wrap.// -->
+                          </div> <!-- action-wrap -->
+                      </figcaption>
+                  </figure> <!-- card // -->
+              </div> <!-- col // -->
+          </div>
+        </div>
+		
+      <div th:replace="fragments/modals :: modals"></div>
+      <div th:replace="fragments/footer :: footer"></div>
+   </body>
+</html>
+

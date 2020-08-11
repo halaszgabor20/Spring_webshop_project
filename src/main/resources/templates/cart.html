@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+   <head th:replace="fragments/header :: head"></head>
+   <body>
+      <nav th:replace="fragments/navbar :: navbar"></nav>
+
+      <div th:if="${carts!=null and !carts.isEmpty()}">
+          <div class="product-container">
+              <h1>Kosár</h1>
+
+              <div class="shopping-cart">
+
+                  <div class="column-labels">
+                      <label class="product-image">Kép</label>
+                      <label class="product-details">Termék</label>
+                      <label class="product-price">Ár</label>
+                      <label class="product-quantity">Mennyiség</label>
+                      <label class="product-removal">Törlés</label>
+                      <label class="product-line-price">Összesen</label>
+                  </div>
+
+                  <div class="product" th:each="product : ${carts}">
+                      <div class="product-image">
+                          <img th:src="${product.img}">
+                      </div>
+                      <div class="product-details">
+                          <h2 th:text="${product.name}"></h2>
+                      </div>
+                      <div class="product-price" th:text="${product.price} + ' Ft'"></div>
+                      <div class="product-quantity">
+                          <input type="number" class="form-control">
+                      </div>
+                      <div class="product-removal">
+                          <a class="btn btn-deep-orange btn-sm" th:href="@{'/delete1?id=' + ${product.product_id}}">
+                             Törlés
+                          </a>
+                      </div>
+                      <div class="product-line-price" th:text="${product.price} + ' Ft'"></div>
+                  </div>
+
+                  <div class="totals">
+                      <div class="totals-item">
+                          <label>Végösszeg</label>
+                          <div class="totals-value" id="cart-total">xxxxx Ft</div>
+                      </div>
+                  </div>
+
+                  <a class="btn btn-deep-orange btn-lg float-right">Megrendelés</a>
+
+                </div>
+          </div>
+      </div>
+
+      <div class="center-emtpy-cart" th:unless="${carts!=null and !carts.isEmpty()}">
+        <h1>Kosár<i class="fas fa-shopping-cart"></i></h1>
+        <h3>Az ön kosara jelenleg üres</h3>
+        <a class="btn btn-deep-orange btn-lg" th:href="@{/}">Vissza a termékekhez</a>
+      </div>
+		
+      <div th:replace="fragments/modals :: modals"></div>
+      <div th:replace="fragments/footer :: footer"></div>
+   </body>
+</html>
+

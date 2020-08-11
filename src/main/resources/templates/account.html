@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+<body>
+    <nav th:replace="fragments/navbar :: navbar"></nav>
+
+    <div class="row account-details">
+        <div class="col-md-6">
+            <div class="card">
+
+                <h5 class="card-header info-color btn-deep-orange text-center py-4">
+                    <strong>Fiók adatok</strong>
+                </h5>
+
+                <div class="card-body px-lg-5 pt-0">
+                    <form class="md-form" th:object="${user}" th:action="@{/updateUser}" method="post">
+
+                        <div class="md-form mb-5">
+                            <label for="username-input">Felhasználónév <small>(nem módosítható)</small></label>
+                            <input name="username" type="text" id="username-input" class="form-control" readonly th:field="*{username}" required>
+                        </div>
+
+                        <div class="md-form mb-5">
+                            <label for="name-input">Név</label>
+                            <input name="name"  type="text" id="name-input" class="form-control" th:field="*{name}" required>
+                        </div>
+
+                        <div class="md-form mb-5">
+                            <label for="input">Email</label>
+                            <input name="email"  type="text" id="input" class="form-control" th:field="*{email}" required>
+                        </div>
+
+                        <div class="md-form mb-5">
+                            <label for="address-input">Lakcím</label>
+                            <input name="address"  type="text" id="address-input" class="form-control" th:field="*{address}" required>
+                        </div>
+
+                        <div class="md-form mb-5">
+                            <label for="zip-input">Irányítószám</label>
+                            <input name="zip"  type="number" id="zip-input" class="form-control" th:field="*{zip}" required>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-deep-orange">Adatok módosítása</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card margin-top-md">
+
+                <h5 class="card-header info-color btn-deep-orange text-center py-4">
+                    <strong>Jelszó modosítás</strong>
+                </h5>
+
+                <div class="card-body px-lg-5 pt-0">
+                    <form class="md-form"  th:action="@{/updateUserPassword}" method="post">
+
+                        <div class="md-form mb-5">
+                            <label for="new-pass">Új jelszó</label>
+                            <input name="newpass" type="password" id="new-pass" class="form-control" required>
+                        </div>
+                        <div class="md-form mb-5">
+                            <label for="new-pass-again">Új jelszó újra</label>
+                            <input name="newpassagain" type="password" id="new-pass-again" class="form-control" required>
+                        </div>
+
+                        <div class="alert alert-danger" th:if="${(param.error != null) and (param.error[0] == 'true')}">
+                            Nem egyeznek a jelszavak
+                        </div>
+
+
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-deep-orange">Jelszó módosítása</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:replace="fragments/modals :: modals"></div>
+    <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

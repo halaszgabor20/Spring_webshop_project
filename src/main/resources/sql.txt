@@ -1,0 +1,15 @@
+	INSERT INTO public.product(name, is_active, price, category, img)VALUES ('Acer SA230b', true, 45000, 'monitor', 'https://azcd.harveynorman.com.au/media/catalog/product/cache/21/image/992x558/9df78eab33525d08d6e5fb8d27136e95/2/4/24mk400h-b.jpg');
+	INSERT INTO public.product(name, is_active, price, category, img)VALUES ('Dell s342', true, 76000, 'monitor', 'https://brain-images-ssl.cdn.dixons.com/5/1/10178715/l_10178715_015.jpg');
+	INSERT INTO public.product(name, is_active, price, category, img)VALUES ('LG g274', true, 36000, 'monitor', 'https://p1.akcdn.net/full/379669409.lg-19m38a-b.jpg');
+
+	INSERT INTO public.product(name, is_active, price, category, img)VALUES ('Logitech G pro', true, 8000, 'egér', 'https://c1-ebgames.eb-cdn.com.au/merchandising/images/packshots/acf651a98251436ab44534fae0a3fc26_Large.png');
+	INSERT INTO public.product(name, is_active, price, category, img)VALUES ('Lenovo Legion Gaming', true, 15000, 'egér', 'https://azcd.harveynorman.com.au/media/catalog/product/cache/21/image/992x558/9df78eab33525d08d6e5fb8d27136e95/g/x/gx30p93886-lenovo-legion-m200-rgb-gaming-mouse.jpg');
+	INSERT INTO public.product(name, is_active, price, category, img)VALUES ('Razer Abyssus', true, 16000, 'egér', 'https://target.scene7.com/is/image/Target/GUEST_4811f447-f1ba-4898-8772-5016fa243371?wid=488&hei=488&fmt=pjpeg');
+
+	INSERT INTO public.product(name, is_active, price, category, img)VALUES ('Trust GXT', true, 9000, 'billentyűzet', 'https://www.professional.hu/termekek/1100/Trust-GXT-830-RW-Avonn-USB-gamer-billentyuzet-47124A.jpg');
+	INSERT INTO public.product(name, is_active, price, category, img)VALUES ('Genius scorpion', true, 12000, 'billentyűzet', 'https://p1.akcdn.net/full/458487135.genius-scorpion-k10.jpg');
+	INSERT INTO public.product(name, is_active, price, category, img)VALUES ('ASUS Cerberus', true, 15000, 'billentyűzet', 'https://p1.akcdn.net/full/357411733.asus-cerberus-90yh00r1-b2ha00.jpg');
+
+	INSERT INTO public.product(name, is_active, price, category, img)VALUES ('Gainward GeForce GTX 1070', true, 120000, 'videókártya', 'https://www.infolex.hu/kep/56996/nagy/gainward-geforce-gtx-1070-8gb-ddr5-426018336-3750-pci-e-videokartya.jpg');
+	INSERT INTO public.product(name, is_active, price, category, img)VALUES ('ASUS radeon R7 240', true, 33100, 'videókártya', 'https://dotkepek.kmak.hu/422/asus-radeon-r7-240-4gb-videokartya-r7240-o4gd5-l-574923.jpg');
+	INSERT INTO public.product(name, is_active, price, category, img)VALUES ('Sapphire RADEON RX 550', true, 36000, 'videókártya', 'https://www.bestmarkt.hu/img/o/414964-6k475.jpg');
